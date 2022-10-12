@@ -1,0 +1,16 @@
+/*
+ * Filename: c:\dev\wip\ecommerce\src\index.css
+ * Path: c:\dev\wip\ecommerce
+ * Created Date: Wednesday, October 12th 2022, 6:53:52 pm
+ * Author: Vikas K Solegaonkar
+ * 
+ * Copyright (c) 2022 Vikas K Solegaonkar
+ */
+
+.click {
+  cursor: pointer;
+}
+
+.text-right {
+  text-align: right;
+}
