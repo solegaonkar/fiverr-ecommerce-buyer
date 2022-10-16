@@ -7,7 +7,7 @@
  * Copyright (c) 2022 Vikas K Solegaonkar                                      *
  * Crystal Cloud Solutions (https://crystalcloudsolutions.com)                 *
  *                                                                             *
- * Last Modified: Wed Oct 12 2022                                              *
+ * Last Modified: Sun Oct 16 2022                                              *
  * Modified By: Vikas K Solegaonkar                                            *
  *                                                                             *
  * HISTORY:                                                                    *
@@ -23,29 +23,7 @@ export const AppContextProvider = (props) => {
   const [authenticated, setAuthenticated] = useState(false);
   const [showNow, setShowNow] = useState("");
   const [cart, setCart] = useState([]);
-  const [collection, setCollection] = useState([
-    {
-      id: "1",
-      image: "images/product01.jpg",
-      price: 10,
-      title: "Tank Top",
-      description: "",
-    },
-    {
-      id: "2",
-      image: "images/product02.jpg",
-      price: 10,
-      title: "Polo-Shirt",
-      description: "",
-    },
-    {
-      id: "3",
-      image: "images/product03.jpg",
-      price: 10,
-      title: "T-Shirt",
-      description: "",
-    },
-  ]);
+  const [collection, setCollection] = useState([]);
 
   return (
     <AppContext.Provider

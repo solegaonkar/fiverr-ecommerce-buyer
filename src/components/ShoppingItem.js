@@ -7,7 +7,7 @@
  * Copyright (c) 2022 Vikas K Solegaonkar                                      *
  * Crystal Cloud Solutions (https://crystalcloudsolutions.com)                 *
  *                                                                             *
- * Last Modified: Wed Oct 12 2022                                              *
+ * Last Modified: Sun Oct 16 2022                                              *
  * Modified By: Vikas K Solegaonkar                                            *
  *                                                                             *
  * HISTORY:                                                                    *
@@ -23,12 +23,12 @@ function ShoppingItem({ item }) {
   var { id, title, image, price, description } = item;
   const { cart, setCart } = useContext(AppContext);
 
-  const addToCart = (e) => {
-    setCart([...cart, id]);
+  const addToCart = () => {
+    setCart([...cart, { id, title, price, description }]);
   };
 
   return (
-    <div className="col-sm-6 col-lg-4 mb-4 click" onClick={(e) => addToCart(id)}>
+    <div className="col-sm-6 col-lg-4 mb-4 click" onClick={(e) => addToCart()}>
       <div className="block-4 text-center border">
         <figure className="block-4-image">
           <img src={image} alt="placeholder" className="img-fluid" />

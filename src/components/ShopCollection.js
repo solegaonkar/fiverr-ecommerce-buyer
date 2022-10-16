@@ -7,7 +7,7 @@
  * Copyright (c) 2022 Vikas K Solegaonkar                                      *
  * Crystal Cloud Solutions (https://crystalcloudsolutions.com)                 *
  *                                                                             *
- * Last Modified: Wed Oct 12 2022                                              *
+ * Last Modified: Sun Oct 16 2022                                              *
  * Modified By: Vikas K Solegaonkar                                            *
  *                                                                             *
  * HISTORY:                                                                    *
@@ -16,12 +16,19 @@
  * --------------------------------------------------------------------------- *
  */
 
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import { Constants } from "../main/constants";
+import { Cloud } from "../main/cloud";
 import { AppContext } from "../main/context";
 import ShoppingItem from "./ShoppingItem";
 
 function ShopCollection() {
-  const { collection } = useContext(AppContext);
+  const { collection, setCollection } = useContext(AppContext);
+
+  useEffect(() => {
+    Cloud.post(Constants.API, { action: "ITEM_LIST" }).then((value) => setCollection(value));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="container pt-4 mt-4">
