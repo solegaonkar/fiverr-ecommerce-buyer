@@ -56,6 +56,18 @@ function Cart() {
   function afterOpenModal() {}
 
   const placeOrder = async () => {
+    if (!name) {
+      alert("Please provice your name");
+      return;
+    }
+    if (!address) {
+      alert("Please provice a shipping address");
+      return;
+    }
+    if (!cardNo) {
+      alert("Please provice your credit card no");
+      return;
+    }
     var pList = cart.map((c) =>
       Cloud.post(Constants.API, {
         action: "ADD_ORDER",
@@ -63,6 +75,12 @@ function Cart() {
       })
     );
     await Promise.all(pList);
+    setAddress("");
+    setName("");
+    setCardNo("");
+    setCart([]);
+    alert("Order placed successfully");
+    setIsOpen(false);
   };
 
   const viewItems = () => (
@@ -143,7 +161,7 @@ function Cart() {
     <div className="container-fluid" id="cartmodal">
       <div className="row">
         <div className="col-12 text-center click" onClick={openModal}>
-          <h4 className="p-2 mt-4 border border-2 border-success bg-warning">Items: {cart.length}</h4>
+          <h4 className="p-2 mt-4 border border-2 border-success bg-warning">Cart Items ({cart.length})</h4>
         </div>
       </div>
       <Modal
